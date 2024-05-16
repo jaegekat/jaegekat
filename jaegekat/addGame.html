@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            min-height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-top: 30px; 
+        }
+        h1 {
+            text-align: center;
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            left: 0;
+            background: #f4f4f9; 
+            margin-top: 0; 
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+        .form-row, #genre-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #genre-options {
+            display: flex;
+            flex-direction: column; 
+        }
+        .checkbox-container, .label-container {
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-start;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+        .label-container label {
+            margin-bottom: 1px; 
+            margin-top: 2px;
+        }
+        .checkbox-container {
+            margin-right: 20px; 
+            margin-bottom: 11px;
+        }
+        .genre-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .genre-option > div {
+        display: flex; 
+        }
+        input[type="text"], input[type="checkbox"], select, button {
+            padding: 8px;
+            margin-top: 5px;
+        }
+        #newDeveloperDiv, #newGenreDiv {
+            display: none;
+            margin-top: 10px;
+        }
+        .return-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            border: 2px solid #fc2424;
+            background-color: rgb(241, 79, 79);
+            color: #fcfdff;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .return-button:hover {
+            background-color: #ff0000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Game to the Database</h1>
+    <a href="index.html" class="return-button">Return to Home</a>
+    <div class="form-container">
+        <form id="addGameForm">
+            <div class="form-row">
+                <label for="title">Game Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+    <div class="form-row">   
+        <label for="developer-select">Developer:</label>
+        <select id="developer-select" name="developer" onchange="toggleDeveloperInput()">
+            <option value="">Select Developer</option>
+            <option value="1">Galactic Games</option>
+            <option value="2">Deep Sea Studios</option>
+            <option value="3">Medieval Games</option>
+            <option value="4">SkyNet Games</option>
+            <option value="5">ExtraTerrestrial Arts</option>
+            <option value="6">Simplicity Games</option>
+            <option value="7">Reality Studios</option>
+            <option value="new">Add New Developer</option>
+        </select>
+        </div>
+
+        <div id="newDeveloperDiv">
+            <label for="newDeveloper">New Developer Name:</label>
+            <input type="text" id="newDeveloper" name="newDeveloper"><br><br>
+        </div>
+        <div>
+        <label>Genres:</label>
+        <div id="genre-options">
+            <div class="genre-option">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="genre1" name="genre" value="1">
+                    <input type="checkbox" id="genre2" name="genre" value="2">
+                    <input type="checkbox" id="genre3" name="genre" value="3">
+                    <input type="checkbox" id="genre4" name="genre" value="4">
+                    <input type="checkbox" id="genre5" name="genre" value="5">
+                    <input type="checkbox" id="newGenre" name="genre" value="new" onchange="toggleNewGenreInput()">
+                </div>
+                <div class="label-container">
+                    <label for="genre1">Adventure</label>
+                    <label for="genre2">Puzzle</label>
+                    <label for="genre3">Role-playing</label>
+                    <label for="genre4">Strategy</label>
+                    <label for="genre5">Action</label>
+                    <label for="newGenre">Add New Genre</label>
+                </div>
+            </div>
+            <div id="newGenreDiv">
+                <input type="text" id="newGenreName1" name="newGenreName1" placeholder="Enter new genre name">
+                <input type="text" id="newGenreName2" name="newGenreName2" placeholder="Enter new genre name">
+                <input type="text" id="newGenreName3" name="newGenreName3" placeholder="Enter new genre name">
+            </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+    <script>
+        document.getElementById('addGameForm').onsubmit = function() {
+            var title = document.getElementById('title').value;
+            if (title.length === 0) {
+                alert("Please enter a title for the game.");
+                return false;
+            }
+            return true;
+        };
+
+        function toggleDeveloperInput() {
+            var select = document.getElementById("developer-select");
+            var newDeveloperDiv = document.getElementById("newDeveloperDiv");
+            newDeveloperDiv.style.display = select.value === 'new' ? 'block' : 'none';
+        }
+
+        function toggleNewGenreInput() {
+            var checkbox = document.getElementById("newGenre");
+            var newGenreDiv = document.getElementById("newGenreDiv");
+            newGenreDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
+
+
+

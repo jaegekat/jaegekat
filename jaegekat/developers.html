@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Developers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .developer {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .games-list {
+            margin-top: 10px;
+        }
+        .games-list h3 {
+            margin-bottom: 5px;
+        }
+        .games-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .edit-form {
+            margin-top: 10px;
+        }
+        input[type="text"], button {
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .return-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            border: 2px solid #fc2424;
+            background-color: rgb(241, 79, 79);
+            color: #fcfdff;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .return-button:hover {
+            background-color: #ff0000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="return-button">Return to Home</a>
+    <h1>Developer Management</h1>
+
+    <div class="developer">
+        <h2>Galactic Games</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="Galactic Games">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by Galactic Games</h3>
+            <ul>
+                <li>Space Adventure <button onclick="promptDeleteGame(1, 'Space Adventure')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="developer">
+        <h2>Deep Sea Studios</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="Deep Sea Studios">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by Deep Sea Studios</h3>
+            <ul>
+                <li>Ocean Mysteries <button onclick="promptDeleteGame(2, 'Ocean Mysteries')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Developer: Medieval Games -->
+    <div class="developer">
+        <h2>Medieval Games</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="Medieval Games">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by Medieval Games</h3>
+            <ul>
+                <li>Knight's Quest <button onclick="promptDeleteGame(3, 'Knight\'s Quest')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Developer: SkyNet Games -->
+    <div class="developer">
+        <h2>SkyNet Games</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="SkyNet Games">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by SkyNet Games</h3>
+            <ul>
+                <li>Future Wars <button onclick="promptDeleteGame(4, 'Future Wars')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Developer: ExtraTerrestrial Arts -->
+    <div class="developer">
+        <h2>ExtraTerrestrial Arts</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="ExtraTerrestrial Arts">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by ExtraTerrestrial Arts</h3>
+            <ul>
+                <li>Alien Encounter <button onclick="promptDeleteGame(5, 'Alien Encounter')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Developer: Simplicity Games -->
+    <div class="developer">
+        <h2>Simplicity Games</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="Simplicity Games">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by Simplicity Games</h3>
+            <ul>
+                <li>Bubble Pop <button onclick="promptDeleteGame(6, 'Bubble Pop')">Delete</button></li>
+                <li>Animal Kingdom <button onclick="promptDeleteGame(7, 'Animal Kingdom')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Developer: Reality Studios -->
+    <div class="developer">
+        <h2>Reality Studios</h2>
+        <div class="edit-form">
+            <label>Edit Developer Name:</label>
+            <input type="text" value="Reality Studios">
+            <button>Save Changes</button>
+        </div>
+        <div class="games-list">
+            <h3>Games by Reality Studios</h3>
+            <ul>
+                <li>Get-A-Job <button onclick="promptDeleteGame(8, 'Get-A-Job')">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function promptDeleteGame(gameId, gameTitle) {
+            if (confirm(`Do you want to completely remove ${gameTitle} from the site or just disassociate it from the developer? Click OK to remove, Cancel to disassociate.`)) {
+                deleteGameCompletely(gameId);
+            } else {
+                // Function to show reassignment form would be called here
+                console.log(`Reassign game ID: ${gameId}`);
+            }
+        }
+
+        function deleteGameCompletely(gameId) {
+            // Function to delete game would be implemented here
+            console.log(`Deleting game ID: ${gameId}`);
+        }
+    </script>
+</body>
+</html>

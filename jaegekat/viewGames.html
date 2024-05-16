@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', Arial, serif;
+            font-weight: bolder;
+            font-size: 64px;
+            color: #000000;
+        }
+        .return-button {
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            padding: 10px 20px; 
+            border: 2px solid #fc2424; 
+            background-color: rgb(241, 79, 79);
+            color: #fcfdff; 
+            text-decoration: none; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+        }
+        .return-button:hover {
+            background-color: #ff0000; 
+            color: rgb(255, 255, 255); 
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; 
+            margin-top: 20px;
+        }
+        .game {
+            width: 23%; 
+            margin-bottom: 35px; 
+            text-align: center; 
+            border: 2px solid transparent; 
+            transition: border-color 0.3s; 
+        }
+        .game:hover {
+            background-color: #49a0fd;
+        }
+        .game img {
+            width: 90%; 
+            height: auto; 
+            cursor: pointer;
+        }
+        a {
+            color: blue;
+            text-decoration: underline; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <a href="index.html" class="return-button">Return to Home</a>
+    <h1>Explore Games</h1>
+    <div class="game-container">
+        <a href="aboutAlienEncounter.html" class="game">
+            <img src="gameCovers/AlienEncounter.jpg" alt="Alien Encounter Cover">
+        </a>
+        <a href="aboutAnimalKingdom.html" class="game">
+            <img src="gameCovers/AnimalKingdom.jpg" alt="Animal Kingdom Cover">
+        </a>
+        <a href="aboutBubblePop.html" class="game">
+            <img src="gameCovers/BubblePop.jpg" alt="Bubble Pop Cover">
+        </a>
+        <a href="aboutFutureWars.html" class="game">
+            <img src="gameCovers/FutureWars.jpg" alt="Future Wars Cover">
+        </a>
+        <a href="aboutGetAJob.html" class="game">
+            <img src="gameCovers/GetAJob.jpg" alt="Get A Job Cover">
+        </a>
+        <a href="aboutKnightsQuest.html" class="game">
+            <img src="gameCovers/KnightsQuest.jpg" alt="Knight's Quest Cover">
+        </a>
+        <a href="aboutOceanMysteries.html" class="game">
+            <img src="gameCovers/OceanMysteries.jpg" alt="Ocean Mysteries Cover">
+        </a>
+        <a href="aboutSpaceAdventure.html" class="game">
+            <img src="gameCovers/SpaceAdventure.jpg" alt="Space Adventure Cover">
+        </a>
+    </div>
+</body>
+</html>
