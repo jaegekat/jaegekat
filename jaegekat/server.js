@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// TODO: Remove this comment 
 // Set the server to listen on port 8001
 app.listen(8001, () => {
     console.log('Server running on http://localhost:8001');

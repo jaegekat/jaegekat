@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Genres</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #285381;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .form-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .return-button {
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            padding: 10px 20px; 
+            border: 2px solid #fc2424; 
+            background-color: rgb(241, 79, 79); 
+            color: #fcfdff; 
+            text-decoration: none; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+        }
+        .return-button:hover {
+            background-color: #ff0000; 
+            color: rgb(255, 255, 255); 
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="return-button">Return to Home</a>
+<h1>Update Genre Information</h1>
+<h2><u>Click</u> on the Genre to edit information.</h2>
+<table id="genres">
+    <tr>
+        <th>Genre ID</th>
+        <th>Genre Name</th>
+        <th>Genre Description</th>
+    </tr>
+    <tr onclick="selectGenre(this)">
+        <td>1</td>
+        <td>Adventure</td>
+        <td>Games involving exploration and challenges</td>
+        
+    </tr>
+    <tr onclick="selectGenre(this)">
+        <td>2</td>
+        <td>Puzzle</td>
+        <td>Games that require problem solving.</td>
+        
+    </tr>
+    <tr onclick="selectGenre(this)">
+        <td>3</td>
+        <td>Role-playing</td>
+        <td>Games where you assume the role of characters.</td>
+        
+    </tr>
+    <tr onclick="selectGenre(this)">
+        <td>4</td>
+        <td>Strategy</td>
+        <td>Games that require careful planning and tactics.</td>
+        
+    </tr>
+    <tr onclick="selectGenre(this)">
+        <td>5</td>
+        <td>Action</td>
+        <td>Fast paced games requiring quick reflexes.</td>
+        
+    </tr>
+</table>
+
+<div>
+    <h2>Add New Genre</h2>
+    <label for="genrename">Genre Name:</label>
+    <input type="text">
+    <label for="genredescription">Genre Description:</label>
+    <input type="text">
+
+    <button type="submit">Add New Genre</button>
+</div>
+
+<div id="form-section" class="form-section">
+    <h2>Edit Genre Details</h2>
+    <label for="genrename">Genre Name:</label>
+    <input type="text" id="genrename" name="genrename" value="">
+
+    <label for="genredescription">Genre Description:</label>
+    <input type="text" id="genredescription" name="genredescription" value="">
+
+    <button type="submit">Update Genre</button>
+</div>
+
+<script>
+    function selectGenre(row) {
+        var formSection = document.getElementById('form-section');
+        formSection.style.display = 'block'; 
+
+        document.getElementById('genrename').value = row.cells[1].innerText;
+        document.getElementById('genredescription').value = row.cells[2].innerText;
+    }
+</script>
+</body>
+</html>

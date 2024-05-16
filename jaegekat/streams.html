@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Streams</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #285381;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .form-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .return-button {
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            padding: 10px 20px; 
+            border: 2px solid #fc2424; 
+            background-color: rgb(241, 79, 79); 
+            color: #fcfdff; 
+            text-decoration: none; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+        }
+        .return-button:hover {
+            background-color: #ff0000; 
+            color: rgb(255, 255, 255); 
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="return-button">Return to Home</a>
+<h1>Update Streaming Information</h1>
+<h2><u>Click</u> on the Stream record to edit information.</h2>
+<table id="genres">
+    <tr>
+        <th>Stream ID</th>
+        <th>Customer ID</th>
+        <th>Game ID</th>
+        <th>Stream Date</th>
+    </tr>
+    <tr onclick="selectStream(this)">
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>2023-04-01</td>
+        
+    </tr>
+    <tr onclick="selectStream(this)">
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2023-04-02</td>
+        
+    </tr>
+    <tr onclick="selectStream(this)">
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+        <td>2023-04-03</td>
+        
+    </tr>
+    <tr onclick="selectStream(this)">
+        <td>4</td>
+        <td>4</td>
+        <td>4</td>
+        <td>2023-04-04</td>
+        
+    </tr>
+    <tr onclick="selectStream(this)">
+        <td>5</td>
+        <td>5</td>
+        <td>5</td>
+        <td>2023-04-05</td>
+        
+    </tr>
+</table>
+
+<div>
+    <h2>Add New Stream Record</h2>
+    <label for="newcustomerid">Customer ID:</label>
+    <select id="newcustomerid" name="newcustomerid">
+        <option value="1">1: John Doe</option>
+        <option value="2">2: Jane Smith</option>
+        <option value="3">3: Emily Brown</option>
+        <option value="4">4: Michael Johnson</option>
+        <option value="5">5: Sara Wilson</option>
+    </select>
+    <label for="newgameid">Game ID:</label>
+    <select id="newgameid" name="newgameid">
+        <option value="1">1: Space Adventure</option>
+        <option value="2">2: Ocean Mysteries</option>
+        <option value="3">3: Knight's Quest</option>
+        <option value="4">4: Future Wars</option>
+        <option value="5">5: Alien Encounter</option>
+        <option value="6">6: Bubble Pop</option>
+        <option value="7">7: Animal Kingdom</option>
+        <option value="8">8: Get-A-Job</option>
+    </select>
+    <label for="newstreamdate">Stream date:</label>
+    <input type="date">
+    <button type="submit">Add New Stream Record</button>
+</div>
+
+<div id="form-section" class="form-section">
+    <h2>Edit Genre Details</h2>
+    <label for="customerid">Customer ID:</label>
+    <select id="customerid" name="customerid">
+        <option value="1">1: John Doe</option>
+        <option value="2">2: Jane Smith</option>
+        <option value="3">3: Emily Brown</option>
+        <option value="4">4: Michael Johnson</option>
+        <option value="5">5: Sara Wilson</option>
+    </select>
+    <label for="gameid">Game ID:</label>
+    <select id="gameid" name="gameid">
+        <option value="1">1: Space Adventure</option>
+        <option value="2">2: Ocean Mysteries</option>
+        <option value="3">3: Knight's Quest</option>
+        <option value="4">4: Future Wars</option>
+        <option value="5">5: Alien Encounter</option>
+        <option value="6">6: Bubble Pop</option>
+        <option value="7">7: Animal Kingdom</option>
+        <option value="8">8: Get-A-Job</option>
+    </select>
+    <label for="streamdate">Stream Date:</label>
+    <input type="date" id="streamdate" name="streamdate" value="">
+
+    <button type="submit">Update Stream Record</button>
+</div>
+
+<script>
+    function selectStream(row) {
+        var formSection = document.getElementById('form-section');
+        formSection.style.display = 'block'; 
+
+        document.getElementById('customerid').value = row.cells[1].innerText;
+        document.getElementById('gameid').value = row.cells[2].innerText;
+        document.getElementById('streamdate').value = row.cells[3].innerDate;
+    }
+</script>
+</body>
+</html>
