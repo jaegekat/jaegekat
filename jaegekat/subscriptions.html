@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #285381;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .form-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .return-button {
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            padding: 10px 20px; 
+            border: 2px solid #fc2424; 
+            background-color: rgb(241, 79, 79); 
+            color: #fcfdff; 
+            text-decoration: none; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+        }
+        .return-button:hover {
+            background-color: #ff0000; 
+            color: rgb(255, 255, 255); 
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="return-button">Return to Home</a>
+<h1>Update Subscription Information</h1>
+<h2><u>Click</u> on the subscription record to edit information.</h2>
+<table id="subscriptions">
+    <tr>
+        <th>Subscription ID</th>
+        <th>Customer ID</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Active Status</th>
+    </tr>
+    <tr onclick="selectSubscription(this)">
+        <td>1</td>
+        <td>1</td>
+        <td>2023-01-01</td>
+        <td>2024-01-01</td>
+        <td>Active</td>
+        
+    </tr>
+    <tr onclick="selectSubscription(this)">
+        <td>2</td>
+        <td>2</td>
+        <td>2023-02-01</td>
+        <td>2024-02-01</td>
+        <td>Active</td>
+        
+    </tr>
+    <tr onclick="selectSubscription(this)">
+        <td>3</td>
+        <td>3</td>
+        <td>2023-03-01</td>
+        <td>2024-03-01</td>
+        <td>Active</td>
+        
+    </tr>
+    <tr onclick="selectSubscription(this)">
+        <td>4</td>
+        <td>4</td>
+        <td>2023-04-01</td>
+        <td>2024-04-01</td>
+        <td>Active</td>
+        
+    </tr>
+    <tr onclick="selectSubscription(this)">
+        <td>5</td>
+        <td>5</td>
+        <td>2023-05-01</td>
+        <td>2024-05-01</td>
+        <td>Active</td>
+        
+    </tr>
+</table>
+
+<div>
+    <h2>Add New Subscription </h2>
+    <label for="customerid">Customer ID:</label>
+    <select id="newcustomerid" name="newcustomerid">
+        <option value="1">1: John Doe</option>
+        <option value="2">2: Jane Smith</option>
+        <option value="3">3: Emily Brown</option>
+        <option value="4">4: Michael Johnson</option>
+        <option value="5">5: Sara Wilson</option>
+    </select>
+    <label for="subscribedate">Subscription Date:</label>
+    <input type="date">
+    <label for="subscribeenddate">Subscription End Date:</label>
+    <input type="date">
+    <label for="activestatus">Active Status</label>
+    <select name="activestatus" id="activestatus">
+        <option value="1">Active</option>
+        <option value="2">Inactive</option>
+    </select>
+
+    <button type="submit">Add New Subscription</button>
+</div>
+
+<div id="form-section" class="form-section">
+    <h2>Edit Subscription Details</h2>
+    <label for="customerid">Customer ID:</label>
+    <select id="customerid" name="customerid">
+        <option value="1">1: John Doe</option>
+        <option value="2">2: Jane Smith</option>
+        <option value="3">3: Emily Brown</option>
+        <option value="4">4: Michael Johnson</option>
+        <option value="5">5: Sara Wilson</option>
+    </select>
+    <label for="subscribedate">Subscription Date:</label>
+    <input type="date">
+    <label for="subscribeenddate">Subscription End Date:</label>
+    <input type="date">
+    <label for="activestatus">Active Status</label>
+    <select name="activestatus" id="activestatus">
+        <option value="1">Active</option>
+        <option value="2">Inactive</option>
+    </select>
+    <button type="submit">Update Subscription</button>
+</div>
+
+<script>
+    function selectSubscription(row) {
+        var formSection = document.getElementById('form-section');
+        formSection.style.display = 'block'; 
+
+        document.getElementById('customerid').value = row.cells[1].innerText;
+        document.getElementById('startdate').value = row.cells[2].innerDate;
+        document.getElementById('enddate').value = row.cells[3].innerDate;
+    }
+</script>
+</body>
+</html>
